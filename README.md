@@ -1,4 +1,4 @@
-<include a CircleCI status badge, here>
+[![zerocodebit254](https://circleci.com/gh/zerocodebit254/udacityprojectfive.svg?style=svg)](https://app.circleci.com/pipelines/github/zerocodebit254/udacity-project-five/5/workflows/f083f0c3-c1bb-42ca-bb37-aea94fd515b2)
 
 ## Project Overview
 
@@ -40,3 +40,4 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 * Setup and Configure Kubernetes locally
 * Create Flask app in Container
 * Run via kubectl
+
