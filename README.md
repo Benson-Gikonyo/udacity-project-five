@@ -28,11 +28,28 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 * Create a virtualenv and activate it
 * Run `make install` to install the necessary dependencies
 
+
+Create a virtualenv and activate it with:
+	1. python3 -m venv ~/.devops
+	2. source ~/.devops/bin/activate
+
+Run the following command  to install the necessary dependencies:
+	make install
+
+For Ubuntu users, you must:
+	1. install hadolintto the project directory and
+	2. make sure that its added to the /usr/bin/ 
+	3. To test hadolint alone, 
+		run: hadolint Dockerfile
+If it did not give any output, this means its working fine. 
+Dockerfile is the file that has the steps to set up your image and create a container later from it.
+
+
 ### Running `app.py`
 
-1. Standalone:  `python app.py`
-2. Run in Docker:  `./run_docker.sh`
-3. Run in Kubernetes:  `./run_kubernetes.sh`
+1. to run app.py alone:  `python app.py`
+2. to run in Docker:  `./run_docker.sh`
+3. to run in Kubernetes:  `./run_kubernetes.sh`
 
 ### Kubernetes Steps
 
@@ -40,4 +57,39 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 * Setup and Configure Kubernetes locally
 * Create Flask app in Container
 * Run via kubectl
+
+ ## Minikube:
+Minikube MUST be running locally and started before being able to use "kubectl" and execute its commands.
+Steps to use Minikube:
+	1. Download and install minikube locally according to your operating system (the scripts to be executed should be cross platform)
+	2. To start minikube run 
+		"minikube start"
+	3. Install --kubectl-- locally 
+	4. Make sure it's installed correctly by running 
+		"minikube version` 
+	5. Check if it works by running a command `
+		"kubectl version" 
+Now we're able to make predictions.
+	1. Run "./run_docker.sh"
+	2. Run "./make_prediction.sh"in a separate terminal tab or window after number 1. 
+	3.thereafter, copy paste the output from the run_docker.sh-tab into docker_out.txt file
+	4. upload docker by running "upload_docker.sh"
+	5. install kubernetes and minikube locally as prescribed
+	6. run "run_kubernetes.sh" to run app.py in kubernetes. this may take a while. 
+	7. run "./make_prediction.sh"again ina separate tab or terminal
+	8. copy paste the output from the run_kubernetes tab to a kubernetes out.txt
+	9. Both text files are stored in the output_txt folder
+	10. Delete the minikube cluster bu running the command "minikube delete"
+	11.create a .circle.ci folder with the downloaded config.yaml file in it and build  the software on the circle ci platform.
+
+
+ ##Directory files description
+
+1- output_txt_files:files for storing the output produced by making predictions using docker and kubernetes; namely docker_out and kubernetes_out text files
+2- Dockerfile: a file that describes the necessary steps to setup your docker image and create a container  
+3- Makefile: A file where we describe several steps for running software specifying a tag for each step, and able to run steps in the commandline using "make <tagname>"
+4- requirements.txt: It contains the needed libraries and dependencies to be able to complete the project. 
+5- run_docker.sh: A shell script with running steps needed for building a docker image, listing all current containers and creating a container. 
+6- run_kubernetes.sh: A shell script for setting and running a docker container using kubernetes. 
+7- upload_docker.sh: A shell script for uploading a local Docker image to your Dockerhub online.
 
