@@ -1,32 +1,15 @@
-* Serving Flask app "app" (lazy loading)
- * Environment: production
-   WARNING: Do not use the development server in a production environment.
-   Use a production WSGI server instead.
- * Debug mode: on
- * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 129-516-115
-[2020-09-03 16:00:33,230] INFO in app: JSON payload: 
-{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
-[2020-09-03 16:00:33,251] INFO in app: Inference payload DataFrame: 
-   CHAS     RM    TAX  PTRATIO      B  LSTAT
-0     0  6.575  296.0     15.3  396.9   4.98
-[2020-09-03 16:00:33,261] INFO in app: Scaling Payload: 
-   CHAS     RM    TAX  PTRATIO      B  LSTAT
-0     0  6.575  296.0     15.3  396.9   4.98
-127.0.0.1 - - [03/Sep/2020 16:00:33] "POST /predict HTTP/1.1" 200 -
-127.0.0.1 - - [03/Sep/2020 16:03:01] code 400, message Bad request version ('¢Ý\x93²v\x00$\x13\x01\x13\x03\x13\x02À+À/Ì©Ì¨À,À0À')
-127.0.0.1 - - [03/Sep/2020 16:03:01] "üpìðù
-Ö84XÎIê·®e'Z¨#¾;¶Ä ÷gíÝÖÙ]j@xEk´Uü#}%;^¢Ý²v$À+À/Ì©Ì¨À,À0À" HTTPStatus.BAD_REQUEST -
-127.0.0.1 - - [03/Sep/2020 16:03:07] code 400, message Bad request version ('5')
-127.0.0.1 - - [03/Sep/2020 16:03:07] "üÛÕ ËëhÄ¼Ö5÷ÿN£RR+$oî÷×vj 5" HTTPStatus.BAD_REQUEST -
-[2020-09-03 16:03:33,010] INFO in app: JSON payload: 
-{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
-[2020-09-03 16:03:33,043] INFO in app: Inference payload DataFrame: 
-   CHAS     RM    TAX  PTRATIO      B  LSTAT
-0     0  6.575  296.0     15.3  396.9   4.98
-[2020-09-03 16:03:33,054] INFO in app: Scaling Payload: 
-   CHAS     RM    TAX  PTRATIO      B  LSTAT
-0     0  6.575  296.0     15.3  396.9   4.98
-127.0.0.1 - - [03/Sep/2020 16:03:33] "POST /predict HTTP/1.1" 200 -
+ # output from make_prediction.sh
+Port: 8000
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+ #output from run_kubernetes window
+
+Error from server (AlreadyExists): pods "udacityprojectfive" already exists
+NAME                 READY   STATUS    RESTARTS   AGE
+udacityprojectfive   1/1     Running   0          37m
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
